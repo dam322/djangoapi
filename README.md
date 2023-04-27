@@ -9,7 +9,12 @@ cd authtutorial
 
 pip install -r requirements.txt
 
-Step 3: Create .env file with SECRET_KEY field and fields for database connection with PostgreSql
+Step 3: Create .env file with SECRET_KEY field and fields for database connection with PostgreSql:
+POSTGRESQL_NAME
+POSTGRESQL_USER
+POSTGRESQL_PASS
+POSTGRESQL_HOST
+POSTGRESQL_PORT
 
 Step 4: Run the migrations and create database
 
