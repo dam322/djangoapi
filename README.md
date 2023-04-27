@@ -9,13 +9,15 @@ cd authtutorial
 
 pip install -r requirements.txt
 
-Step 3: Run the migrations and create database
+Step 3: Create .env file with SECRET_KEY field and fields for database connection with PostgreSql
+
+Step 4: Run the migrations and create database
 
 python manage.py makemigrations
 
 python manage.py migrate
 
-Step 4: Run the server
+Step 5: Run the server
 
 python manage.py runserver
 
