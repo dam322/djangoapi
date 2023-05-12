@@ -75,8 +75,7 @@ def recommend_games(json_response):
 
     final_recommendation = games_df.loc[games_df['id'].isin(recommendation_table_df.head(5).keys())]
     final_recommendation = final_recommendation.drop('stores', axis=1).drop('reviews_count', axis=1).drop('platforms',
-                                                                                                          axis=1).drop(
-        'background_image', axis=1).drop('ratings', axis=1).drop('slug', axis=1).drop('added', axis=1).drop(
+                                                                                                          axis=1).drop('ratings', axis=1).drop('slug', axis=1).drop('added', axis=1).drop(
         'saturated_color', axis=1).drop('rating_top', axis=1).drop('user_game', axis=1).drop('short_screenshots',
                                                                                              axis=1).drop(
         'dominant_color', axis=1).drop('updated', axis=1).drop('reviews_text_count', axis=1).drop('esrb_rating',
