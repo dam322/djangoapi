@@ -24,10 +24,10 @@ def recommend_games(json_response):
         'saturated_color', axis=1).drop('rating_top', axis=1).drop('user_game', axis=1).drop('short_screenshots',
                                                                                              axis=1).drop(
         'dominant_color', axis=1).drop('updated', axis=1).drop('reviews_text_count', axis=1).drop('esrb_rating',
-                                                                                                  axis=1).drop(
+                                                                                                 axis=1).drop(
         'released', axis=1).drop('tba', axis=1).drop('added_by_status', axis=1).drop('ratings_count', axis=1).drop(
-        'suggestions_count', axis=1).drop('tags', axis=1).drop('playtime', axis=1).drop('score', axis=1).drop('clip',
-                                                                                                              axis=1).drop(
+        'suggestions_count', axis=1).drop('tags', axis=1).drop('playtime', axis=1).drop('clip',
+                                                                                                             axis=1).drop(
         'parent_platforms', axis=1)
     # games_with_genres
 
@@ -36,16 +36,7 @@ def recommend_games(json_response):
 
     input_id = games_df[games_df['name'].isin(input_games['name'].tolist())]
     input_games = pd.merge(input_id, input_games)
-    input_games = input_games.drop('stores', axis=1).drop('reviews_count', axis=1).drop('platforms', axis=1).drop(
-        'background_image', axis=1).drop('ratings', axis=1).drop('slug', axis=1).drop('added', axis=1).drop(
-        'saturated_color', axis=1).drop('rating_top', axis=1).drop('user_game', axis=1).drop('short_screenshots',
-                                                                                             axis=1).drop(
-        'dominant_color', axis=1).drop('updated', axis=1).drop('reviews_text_count', axis=1).drop('esrb_rating',
-                                                                                                  axis=1).drop(
-        'released', axis=1).drop('tba', axis=1).drop('added_by_status', axis=1).drop('ratings_count', axis=1).drop(
-        'suggestions_count', axis=1).drop('tags', axis=1).drop('playtime', axis=1).drop('score', axis=1).drop('clip',
-                                                                                                              axis=1).drop(
-        'parent_platforms', axis=1)
+    input_games = input_games.drop('stores', axis=1).drop('reviews_count', axis=1).drop('platforms', axis=1).drop('background_image', axis=1).drop('ratings', axis=1).drop('slug', axis=1).drop('added', axis=1).drop('saturated_color', axis=1).drop('rating_top', axis=1).drop('user_game', axis=1).drop('short_screenshots',axis=1).drop('dominant_color', axis=1).drop('updated', axis=1).drop('reviews_text_count', axis=1).drop('esrb_rating',axis=1).drop('released', axis=1).drop('tba', axis=1).drop('added_by_status', axis=1).drop('ratings_count', axis=1).drop('suggestions_count', axis=1).drop('tags', axis=1).drop('playtime', axis=1).drop('clip',axis=1).drop('parent_platforms', axis=1)
     input_games.head()
 
     userGames = games_with_genres[games_with_genres['id'].isin(input_games['id'].tolist())]
@@ -80,8 +71,8 @@ def recommend_games(json_response):
                                                                                              axis=1).drop(
         'dominant_color', axis=1).drop('updated', axis=1).drop('reviews_text_count', axis=1).drop('esrb_rating',
                                                                                                   axis=1).drop(
-        'released', axis=1).drop('tba', axis=1).drop('added_by_status', axis=1).drop('ratings_count', axis=1).drop(
-        'suggestions_count', axis=1).drop('tags', axis=1).drop('playtime', axis=1).drop('score', axis=1).drop('clip',
+       'released', axis=1).drop('tba', axis=1).drop('added_by_status', axis=1).drop('ratings_count', axis=1).drop(
+        'suggestions_count', axis=1).drop('tags', axis=1).drop('playtime', axis=1).drop('clip',
                                                                                                               axis=1).drop(
         'parent_platforms', axis=1)
     result = final_recommendation.to_json(orient="records")
