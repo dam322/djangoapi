@@ -94,16 +94,7 @@ class LogoutView(APIView):
 class FirstRecommenderView(APIView):
     def post(self, request):
         
-        token = request.COOKIES.get('jwt')
-        if not token:
-            raise AuthenticationFailed("Unauthenticated!")
         
-        try:
-            payload = jwt.decode(token, 'secret', algorithms="HS256")
-            #decode gets the user
-
-        except jwt.ExpiredSignatureError:
-            raise AuthenticationFailed("Unauthenticated!")
         
         game_list = request.data
         first_reco = rec.recommend_games(game_list)

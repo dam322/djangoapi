@@ -1,8 +1,9 @@
 from locust import HttpUser, task, between
 
 class HelloWorldUser(HttpUser):
+    
     @task
-    def recommender(self):
+    def recommender1(self):
         self.client.post("recommender1", json={"results": [
         {
             "slug": "god-of-war-ragnarok",
