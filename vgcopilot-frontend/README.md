@@ -1,1 +1,0 @@
-# vgcopilot-frontend
