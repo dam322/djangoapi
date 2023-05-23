@@ -3,12 +3,14 @@ import {
   Title,
   useMantineTheme,
   Text,
+  Slider,
   Grid,
   Button,
   Select,
   SelectProps,
-} 
-from "@mantine/core";
+} from "@mantine/core";
+import { useForm } from "@mantine/form";
+import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSetRecoilState } from "recoil";
@@ -192,6 +194,75 @@ function StartTest() {
 }
 
 export default StartTest;
+
+function Question({
+  question = "Pregunta corta",
+  props,
+}: {
+  question: string;
+  props?: any[];
+}) {
+  const theme = useMantineTheme();
+
+  return (
+    <Grid
+      grow
+      gutter={5}
+      mt="md"
+      style={{
+        width: "50%",
+        margin: "auto",
+        marginTop: "5%",
+        height: "100%",
+      }}
+    >
+      <Grid.Col span={5}>
+        <Text
+          style={{
+            color: theme.colorScheme === "dark" ? theme.white : theme.black,
+            fontFamily: `Fira Sans, ${theme.fontFamily}`,
+          }}
+        >
+          {question}
+        </Text>
+      </Grid.Col>
+      <Grid.Col span={5}>
+        <Slider
+          {...props}
+          ml={"5%"}
+          step={1}
+          max={5}
+          min={1}
+          marks={[
+            {
+              value: 1,
+              label: "1",
+            },
+            {
+              value: 2,
+              label: "2",
+            },
+            {
+              value: 3,
+              label: "3",
+            },
+            {
+              value: 4,
+              label: "4",
+            },
+            {
+              value: 5,
+              label: "5",
+            },
+          ]}
+          size={"xl"}
+          variant="gradient"
+          color="purple"
+        />
+      </Grid.Col>
+    </Grid>
+  );
+}
 
 function QuestionSelect({
   question = "test",

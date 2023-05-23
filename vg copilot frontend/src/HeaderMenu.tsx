@@ -1,7 +1,7 @@
 import { createStyles, Header, Menu, Group, Center, Burger, Container, rem } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { IconAlien, IconChevronDown } from '@tabler/icons-react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigation } from 'react-router-dom';
 
 const useStyles = createStyles((theme) => ({
   inner: {

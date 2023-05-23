@@ -5,7 +5,9 @@ import { MantineProvider } from "@mantine/core";
 import {
   RouterProvider,
   createBrowserRouter,
+  redirect,
   useNavigate,
+  useNavigation,
 } from "react-router-dom";
 import { Auth } from "./Auth.tsx";
 import StartTest from "./StartTest.tsx";
@@ -13,6 +15,7 @@ import Rate from "./Rate.tsx";
 import Loading from "./Loader.tsx";
 import Recomendations from "./Recomendations.tsx";
 import { RecoilRoot } from "recoil";
+import Loader from "./Loader.tsx";
 
 const router = createBrowserRouter([
   {
@@ -46,6 +49,10 @@ const router = createBrowserRouter([
       {
         path: "/recomendations",
         element: <Recomendations />,
+      },
+      {
+        path: "/loading",
+        element: <Loader />,
       },
       {
         path: "*",

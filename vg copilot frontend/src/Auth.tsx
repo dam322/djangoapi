@@ -13,7 +13,7 @@ import {
 } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { redirect, useNavigate } from "react-router-dom";
 // import background from "../public/pxfuel.jpg";
 
 const useStyles = createStyles((theme) => ({
@@ -77,18 +77,18 @@ export function Auth({ register }: AuthProps) {
       <form
         onSubmit={form.onSubmit(async (values) => {
           if (register) {
-            const res = await axios.post("https://djangoapi-production-d74d.up.railway.app/api/register/", values);
+            const res = await axios.post("http://127.0.0.1:8000/api/register/", values);
             if (res.status === 200) {
               navigate("/auth/login");
             }
           } else {
             const res = await axios.post(
-              "https://djangoapi-production-d74d.up.railway.app/api/login/",
+              "http://127.0.0.1:8000/api/login/",
               values,
             );
             // console.log(res.data);
             document.cookie = `jwt=${res.data["jwt token"]}; path=/`;
-            //localStorage.setItem("token", res.data["jwt token"]);
+            // localStorage.setItem("token", res.data["jwt token"]);
             if (res.status === 200) {
               navigate("/start-test");
             }

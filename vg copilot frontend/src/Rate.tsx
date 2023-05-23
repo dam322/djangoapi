@@ -2,9 +2,11 @@ import { Carousel, Embla } from "@mantine/carousel";
 import {
   Center,
   Grid,
+  Group,
   Image,
   Rating,
   Title,
+  Text,
   Stack,
 } from "@mantine/core";
 import { RAWGJSONData } from "./rawgTypes";
@@ -12,7 +14,7 @@ import { useEffect, useState } from "react";
 import { nanoid } from "nanoid";
 import { useNavigate } from "react-router-dom";
 import { recommendationsReqBoby } from "./recommendationsSharedState";
-import { useRecoilValue, useSetRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import axios from "axios";
 import { startTestSharedState } from "./startTestSharedState";
 function Rate() {
@@ -132,7 +134,7 @@ function RateComp({
                       ),
                     });
 
-                    navigate("/recomendations");
+                    navigate("/loading");
                   }
                   console.log(ratingMap);
                 }}
